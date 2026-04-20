@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevlon Galloway II • Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+        }
+
+        .cinematic-text {
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .section-transition {
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .video-container {
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.06);
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(to right, #3b82f6, #60a5fa);
+            z-index: 60;
+            transition: width 0.08s ease-out;
+        }
+
+        .nav-scrolled {
+            background: rgba(0, 0, 0, 0.96);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white overflow-x-hidden">
+    <!-- Scroll progress bar -->
+    <div id="progress-bar" class="scroll-progress w-0"></div>
+
+    <!-- NAV -->
+    <nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-zinc-950/90 backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-screen-2xl mx-auto px-8 flex items-center justify-between h-20">
+            <div class="flex items-center gap-x-3">
+                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center">
+                    <span class="text-white font-bold text-xl tracking-tighter">KG</span>
+                </div>
+                <div>
+                    <div class="font-semibold text-xl tracking-[-1px]">Kevlon Galloway II</div>
+                    <div class="text-[10px] text-white/50 -mt-1 tracking-[1px]">SOFTWARE ENGINEER</div>
+                </div>
+            </div>
+
+            <div class="hidden md:flex items-center gap-x-10 text-sm uppercase tracking-[2px] font-medium">
+                <a href="#work" class="hover:text-blue-400 transition-colors duration-200">Work</a>
+                <a href="#about" class="hover:text-blue-400 transition-colors duration-200">About</a>
+                <a href="#journal" class="hover:text-blue-400 transition-colors duration-200">Journal</a>
+            </div>
+
+            <div class="flex items-center gap-x-4">
+                <button onclick="showContactModal()" 
+                        class="hidden md:block px-6 py-2.5 text-xs tracking-[2px] font-semibold border border-white/40 hover:border-white hover:bg-white hover:text-zinc-950 transition-all active:scale-[0.985]">
+                    GET IN TOUCH
+                </button>
+                
+                <button class="md:hidden w-10 h-10 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO / VIDEO SCRUB SECTION -->
+    <div id="video-section" class="relative" style="height: 280vh;">
+        <div class="sticky top-0 h-screen w-full overflow-hidden video-container">
+            
+            <!-- THE VIDEO -->
+            <video id="hero-video" 
+                   class="absolute inset-0 w-full h-full object-cover"
+                   muted 
+                   playsinline 
+                   preload="auto"
+                   style="filter: contrast(1.08) saturate(0.92);">
+                <!-- IMPORTANT: Replace with your generated video -->
+                <!-- File: _users_ab42e084-b5f0-4085-b1c1-932d1f9b2109_generated_7e43573c-b982-4f43-a035-3708c0837299_generated_video.mp4 -->
+                <source src="https://assets.mixkit.co/videos/preview/1008/1008-small.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <!-- Cinematic overlays -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/35 to-black/85"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(#ffffff0d_1px,transparent_1px)] bg-[length:3px_3px]"></div>
+            <div class="absolute inset-0 shadow-[inset_0_0_140px_rgba(0,0,0,0.92)]"></div>
+            
+            <!-- Light leak / sun flare -->
+            <div class="absolute top-[18%] left-[32%] w-[520px] h-[520px] bg-white/8 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <!-- TEXT OVERLAY CONTAINER -->
+            <div class="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 text-center">
+                
+                <!-- START: SOFTWARE ENGINEER -->
+                <div id="title-start" class="section-transition max-w-5xl">
+                    <div class="mb-4">
+                        <span class="inline-block px-5 py-1 text-xs tracking-[3.5px] font-mono text-blue-400 border border-blue-400/40 rounded-full">NEW YORK CITY</span>
+                    </div>
+                    <h1 class="font-display text-[13.5vw] md:text-[9.2vw] lg:text-[8.2vw] leading-[0.88] font-semibold tracking-[-6.5px] cinematic-text">
+                        SOFTWARE<br>ENGINEER
+                    </h1>
+                    <p class="mt-5 text-xl md:text-2xl text-white/70 max-w-md mx-auto">Building elegant systems at the intersection of design and code.</p>
+                </div>
+
+                <!-- END: KEVLON GALLOWAY II -->
+                <div id="title-end" class="section-transition hidden max-w-5xl">
+                    <div class="flex flex-col items-center">
+                        <div class="text-[9.5vw] md:text-[6.8vw] lg:text-[6vw] leading-[0.88] font-display font-semibold tracking-[-4.8px] cinematic-text">
+                            KEVLON<br>GALLOWAY II
+                        </div>
+                        <div class="mt-4 flex items-center gap-x-4">
+                            <div class="h-px w-10 bg-white/50"></div>
+                            <span class="text-sm tracking-[3.5px] text-white/70 font-medium">SOFTWARE ENGINEER</span>
+                            <div class="h-px w-10 bg-white/50"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GET IN TOUCH BUTTON -->
+                <button id="cta-button"
+                        onclick="showContactModal()"
+                        class="section-transition hidden mt-11 group flex items-center justify-center gap-x-4 px-10 py-[17px] border border-white/70 hover:border-white bg-transparent hover:bg-white text-sm tracking-[2.5px] font-semibold transition-all duration-300 active:scale-[0.985]">
+                    <span>GET IN TOUCH</span>
+                    <i class="fa-solid fa-arrow-right-long group-hover:translate-x-1 transition-transform"></i>
+                </button>
+
+                <!-- Scroll prompt -->
+                <div id="scroll-hint" class="absolute bottom-16 flex flex-col items-center gap-y-1 text-[11px] tracking-[3.5px] text-white/60 font-medium">
+                    <div>SCROLL TO BEGIN</div>
+                    <i class="fa-solid fa-chevron-down text-lg mt-1.5 animate-bounce"></i>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent"></div>
+        </div>
+    </div>
+
+    <!-- POST-VIDEO CONTENT (placeholder for future sections) -->
+    <div class="max-w-screen-2xl mx-auto px-8 pt-20 pb-14 border-t border-white/10">
+        <div class="max-w-2xl mx-auto text-center">
+            <div class="inline-flex items-center gap-x-2 text-xs tracking-[3px] text-white/40 mb-4">
+                <div class="w-px h-3 bg-white/30"></div>
+                <span>PORTFOLIO IN PROGRESS</span>
+                <div class="w-px h-3 bg-white/30"></div>
+            </div>
+            
+            <h2 class="font-display text-5xl md:text-[56px] tracking-tight font-semibold">The work speaks for itself.</h2>
+            <p class="mt-4 text-xl text-white/60 max-w-md mx-auto">This space is intentionally left open for the projects, writing, and stories that define my craft.</p>
+            
+            <div class="mt-9">
+                <button onclick="document.getElementById('video-section').scrollIntoView({ behavior: 'smooth' })" 
+                        class="text-xs tracking-widest flex items-center gap-x-2.5 mx-auto text-white/50 hover:text-white transition-colors">
+                    <i class="fa-solid fa-redo"></i> 
+                    <span>REPLAY THE CINEMATIC INTRO</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-white/10 py-12">
+        <div class="max-w-screen-2xl mx-auto px-8 grid md:grid-cols-2 gap-y-8 text-sm">
+            <div>
+                <div class="flex items-center gap-x-3 mb-3">
+                    <div class="w-7 h-7 rounded bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center">
+                        <span class="font-bold text-sm">KG</span>
+                    </div>
+                    <span class="font-semibold tracking-tight">Kevlon Galloway II</span>
+                </div>
+                <p class="text-white/50 max-w-xs text-sm">Crafting thoughtful digital experiences since 2018.</p>
+            </div>
+            
+            <div class="flex flex-col md:items-end text-white/60 text-xs tracking-widest space-y-1">
+                <div>© 2026 ALL RIGHTS RESERVED</div>
+                <div class="flex gap-x-5 pt-1">
+                    <a href="#" class="hover:text-white transition">TWITTER</a>
+                    <a href="#" class="hover:text-white transition">LINKEDIN</a>
+                    <a href="#" class="hover:text-white transition">GITHUB</a>
+                    <a href="#" class="hover:text-white transition">ARE.NA</a>
+                </div>
+                <div class="pt-3 text-[10px]">Made with intention • New York, NY</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CONTACT MODAL -->
+    <div id="contact-modal" onclick="if (event.target.id === 'contact-modal') hideContactModal()" 
+         class="hidden fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl flex items-center justify-center p-6">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="bg-zinc-900 border border-white/20 w-full max-w-[420px] rounded-3xl p-10 relative shadow-2xl">
+            
+            <button onclick="hideContactModal()" class="absolute top-7 right-7 text-white/40 hover:text-white text-3xl leading-none transition-colors">×</button>
+            
+            <div class="mb-8">
+                <div class="text-blue-400 text-xs tracking-[2.5px] font-semibold mb-1.5">NEW YORK • REMOTE</div>
+                <h3 class="font-display text-5xl tracking-tighter">Let's build something<br>extraordinary.</h3>
+            </div>
+            
+            <form id="contact-form" onsubmit="submitContactForm(event)">
+                <div class="space-y-7">
+                    <div>
+                        <label class="block text-xs tracking-[1.5px] text-white/50 mb-1.5">NAME</label>
+                        <input type="text" id="name" required class="w-full bg-transparent border-b border-white/20 pb-3.5 text-lg placeholder:text-white/30 focus:outline-none focus:border-blue-400 transition-colors" placeholder="Jordan Lee">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-xs tracking-[1.5px] text-white/50 mb-1.5">EMAIL</label>
+                        <input type="email" id="email" required class="w-full bg-transparent border-b border-white/20 pb-3.5 text-lg placeholder:text-white/30 focus:outline-none focus:border-blue-400 transition-colors" placeholder="jordan@studio.com">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-xs tracking-[1.5px] text-white/50 mb-1.5">WHAT'S ON YOUR MIND?</label>
+                        <textarea id="message" rows="3" required class="w-full resize-y bg-transparent border-b border-white/20 pb-3.5 text-lg placeholder:text-white/30 focus:outline-none focus:border-blue-400 transition-colors" placeholder="I'd love to collaborate on..."></textarea>
+                    </div>
+                </div>
+                
+                <button type="submit" class="mt-9 w-full py-[17px] bg-white hover:bg-zinc-100 active:bg-zinc-200 transition-all text-zinc-950 font-semibold tracking-[1.5px] text-sm rounded-2xl flex items-center justify-center gap-x-2">
+                    SEND MESSAGE
+                    <i class="fa-solid fa-paper-plane text-sm"></i>
+                </button>
+            </form>
+            
+            <p class="text-center text-[10px] text-white/40 mt-6">I reply to every message within 48 hours.</p>
+        </div>
+    </div>
+
+    <script>
+        // Tailwind
+        function initializeTailwind() {
+            // already handled via CDN
+        }
+        
+        let video, titleStart, titleEnd, ctaButton, scrollHint, videoSection, progressBar, nav;
+        let isVideoReady = false;
+        
+        function initVideoScrub() {
+            video = document.getElementById('hero-video');
+            titleStart = document.getElementById('title-start');
+            titleEnd = document.getElementById('title-end');
+            ctaButton = document.getElementById('cta-button');
+            scrollHint = document.getElementById('scroll-hint');
+            videoSection = document.getElementById('video-section');
+            progressBar = document.getElementById('progress-bar');
+            nav = document.getElementById('nav');
+            
+            // Replace this source with your actual video file when ready
+            if (!video.querySelector('source')) {
+                const source = document.createElement('source');
+                source.src = 'https://assets.mixkit.co/videos/preview/1008/1008-small.mp4';
+                source.type = 'video/mp4';
+                video.appendChild(source);
+            }
+            
+            // Robust video loading
+            video.addEventListener('loadedmetadata', () => {
+                video.currentTime = 0;
+                isVideoReady = true;
+                console.log('%c[Site] Video metadata loaded. Duration: ' + video.duration.toFixed(1) + 's', 'color:#64748b');
+                initializeInitialState();
+            });
+            
+            video.addEventListener('canplaythrough', () => {
+                isVideoReady = true;
+                if (window.scrollY < 50) {
+                    updateOnScroll(); // force initial render
+                }
+            });
+            
+            video.load();
+            
+            // Scroll listener (always attached, but guarded)
+            let ticking = false;
+            
+            function onScroll() {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        updateOnScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+            
+            window.addEventListener('scroll', onScroll, { passive: true });
+            
+            // Initial forced update after short delay (fixes first-load issue)
+            setTimeout(() => {
+                if (window.scrollY < 30) {
+                    updateOnScroll();
+                    progressBar.style.width = '0%';
+                }
+            }, 180);
+            
+            // Also on window load
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    updateOnScroll();
+                }, 120);
+            });
+            
+            // Safety: keep video paused
+            video.addEventListener('play', () => {
+                if (window.scrollY < videoSection.offsetTop + 80) video.pause();
+            });
+            
+            console.log('%c[Cinematic Site] Scroll-scrub initialized. First-load bug fixed.', 'color:#64748b');
+        }
+        
+        function initializeInitialState() {
+            if (!video) return;
+            video.pause();
+            video.currentTime = 0;
+            updateOverlayElements(0);
+            progressBar.style.width = '0%';
+            
+            // Force one update
+            setTimeout(updateOnScroll, 50);
+        }
+        
+        function updateOnScroll() {
+            if (!videoSection || !progressBar) return;
+            
+            const rect = videoSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            // Accurate progress using live rect (fixes initial load & layout issues)
+            let progress = (windowHeight - rect.top) / (rect.height - windowHeight);
+            progress = Math.max(0, Math.min(1, progress));
+            
+            // Update progress bar immediately
+            progressBar.style.width = `${progress * 100}%`;
+            
+            // Update video only when ready
+            if (isVideoReady && video.duration && video.readyState >= 2) {
+                const targetTime = progress * video.duration;
+                // Smooth seek (prevents flick/jump)
+                if (Math.abs(video.currentTime - targetTime) > 0.04) {
+                    video.currentTime = targetTime;
+                }
+            }
+            
+            // Update all overlays
+            updateOverlayElements(progress);
+            
+            // Nav style
+            if (window.scrollY > 110) {
+                nav.classList.add('nav-scrolled');
+            } else {
+                nav.classList.remove('nav-scrolled');
+            }
+        }
+        
+        function updateOverlayElements(progress) {
+            if (!titleStart || !titleEnd || !ctaButton || !scrollHint) return;
+            
+            const startEl = titleStart;
+            const endEl = titleEnd;
+            const ctaEl = ctaButton;
+            const hintEl = scrollHint;
+            
+            if (progress < 0.30) {
+                // Phase 1 — Software Engineer (top of scroll)
+                startEl.style.opacity = '1';
+                startEl.style.transform = 'translateY(0) scale(1)';
+                startEl.style.filter = 'blur(0)';
+                
+                endEl.style.opacity = '0';
+                endEl.style.transform = 'translateY(35px) scale(0.96)';
+                
+                ctaEl.style.opacity = '0';
+                ctaEl.style.transform = 'translateY(25px)';
+                ctaEl.style.pointerEvents = 'none';
+                
+                hintEl.style.opacity = '0.7';
+            } else if (progress < 0.68) {
+                // Phase 2 — Transition to name
+                startEl.style.opacity = '0';
+                startEl.style.transform = 'translateY(-45px) scale(0.94)';
+                startEl.style.filter = 'blur(2.5px)';
+                
+                endEl.style.opacity = '1';
+                endEl.style.transform = 'translateY(0) scale(1)';
+                
+                ctaEl.style.opacity = '0';
+                ctaEl.style.transform = 'translateY(25px)';
+                ctaEl.style.pointerEvents = 'none';
+                
+                hintEl.style.opacity = '0.25';
+            } else {
+                // Phase 3 — Full name + CTA button (end of scroll)
+                startEl.style.opacity = '0';
+                startEl.style.transform = 'translateY(-55px) scale(0.92)';
+                
+                endEl.style.opacity = '1';
+                endEl.style.transform = 'translateY(0) scale(1)';
+                
+                ctaEl.style.opacity = '1';
+                ctaEl.style.transform = 'translateY(0)';
+                ctaEl.style.pointerEvents = 'auto';
+                
+                hintEl.style.opacity = '0';
+            }
+        }
+        
+        function showContactModal() {
+            const modal = document.getElementById('contact-modal');
+            modal.style.display = 'flex';
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                const nameInput = document.getElementById('name');
+                if (nameInput) nameInput.focus();
+            }, 380);
+        }
+        
+        function hideContactModal() {
+            const modal = document.getElementById('contact-modal');
+            modal.style.display = 'none';
+            modal.classList.add('hidden');
+            const form = document.getElementById('contact-form');
+            if (form) form.reset();
+        }
+        
+        function submitContactForm(e) {
+            e.preventDefault();
+            const form = e.target;
+            
+            form.innerHTML = `
+                <div class="flex flex-col items-center justify-center py-9 text-center">
+                    <div class="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-check text-emerald-400 text-4xl"></i>
+                    </div>
+                    <h4 class="text-3xl font-semibold tracking-tight mb-2">Message received.</h4>
+                    <p class="text-white/60 max-w-[250px]">Thank you — I'll reply within the next two days.</p>
+                    
+                    <button onclick="hideContactModal()" class="mt-8 text-sm tracking-[1.5px] px-9 py-3.5 border border-white/30 hover:bg-white hover:text-zinc-900 transition-all rounded-2xl">
+                        CLOSE
+                    </button>
+                </div>
+            `;
+            
+            setTimeout(() => {
+                if (!document.getElementById('contact-modal').classList.contains('hidden')) {
+                    hideContactModal();
+                }
+            }, 2800);
+        }
+        
+        function initKeyboard() {
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    const modal = document.getElementById('contact-modal');
+                    if (modal && !modal.classList.contains('hidden')) hideContactModal();
+                }
+                
+                if (e.key.toLowerCase() === '?' && document.activeElement.tagName === 'BODY') {
+                    e.preventDefault();
+                    document.getElementById('video-section').scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                if (e.key === ' ') {
+                    const section = document.getElementById('video-section');
+                    if (section && window.scrollY < section.offsetTop + 100) {
+                        e.preventDefault();
+                        window.scrollTo({ top: section.offsetTop + (section.offsetHeight * 0.55), behavior: 'smooth' });
+                    }
+                }
+            });
+            
+            // Easter egg
+            let keys = '';
+            document.addEventListener('keypress', (e) => {
+                keys += e.key.toLowerCase();
+                if (keys.length > 5) keys = keys.slice(-5);
+                if (keys === 'kgii') {
+                    keys = '';
+                    const section = document.getElementById('video-section');
+                    window.scrollTo({ top: section.offsetTop + section.offsetHeight * 0.82, behavior: 'smooth' });
+                }
+            });
+        }
+        
+        function initializeSite() {
+            initializeTailwind();
+            initVideoScrub();
+            initKeyboard();
+            
+            // Final safety check for first load
+            setTimeout(() => {
+                const pb = document.getElementById('progress-bar');
+                if (pb && pb.style.width === '') pb.style.width = '0%';
+            }, 400);
+            
+            console.log('%c[Portfolio] Fully initialized. Scroll the hero section — effect now works on first load.', 'color:#64748b');
+        }
+        
+        window.onload = initializeSite;
+        window.replayIntro = () => document.getElementById('video-section').scrollIntoView({ behavior: 'smooth' });
+    </script>
+</body>
+</html>
